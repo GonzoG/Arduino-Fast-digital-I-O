@@ -1,12 +1,18 @@
-#include "fastdio.h"
+#ifndef shRegA_h
+#define shRegA_h
+
+#if defined(__AVR_ATmega168__) || defined(__AVR_ATmega168P__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega328P__) 
+	#include "fastdio.h"
+#endif
+
 typedef struct shReg{
-	uint8_t dPin;
-	uint8_t d1Pin;
-	uint8_t d2Pin;	
-	uint8_t d3Pin;	
-	uint8_t rPin;
-	uint8_t sPin;
-	bool bOrder;
+	uint8_t dPin;	//data pin register 1
+	uint8_t d1Pin;	//data pin register 2
+	uint8_t d2Pin;	//data pin register 3
+	uint8_t d3Pin;	//data pin register 4
+	uint8_t rPin;	//register clock (latch) pin
+	uint8_t sPin;	//serial data clock pin
+	bool bOrder;	//bit order MSBFIRST / LSBFIRST
 };
 
 static inline void regOut8(shReg pins,uint8_t data)
@@ -352,7 +358,7 @@ void regOut16(uint8_t dataPin,uint8_t clockPin, bool bitOrder,uint16_t data)
 	}
 }
 
-static inline void regOut16(uint8_t dataPin,uint8_t clockPin, bool bitOrder,uint16_t data)
+static inline void regOut16f(uint8_t dataPin,uint8_t clockPin, bool bitOrder,uint16_t data)
 {
 	if(bitOrder==LSBFIRST)
 	{
@@ -515,3 +521,4 @@ void regOut32l(uint8_t dataPin,uint8_t clockPin, bool bitOrder,uint32_t data, ui
 	digitalWriteFast(latchPin,1);
 }
 //		digitalWriteFast(dataArduPin,data & 0x80000000); //0x80 //128
+#endif
