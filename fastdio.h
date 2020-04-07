@@ -1,3 +1,6 @@
+#ifndef fastdio_h
+#define fastdio_h
+
 static inline void digitalWriteFast(uint8_t pin, bool bit)
 {
 	if(bit)
@@ -109,6 +112,24 @@ static inline void digitalWriteFast(uint8_t pin, bool bit)
 		case 51: PORTB |= B100; break;
 		case 52: PORTB |= B10; break;
 		case 53: PORTB |= B1; break;
+		case 54: PORTF |= B1; break;
+		
+		case 55: PORTF |= B10; break;
+		case 56: PORTF |= B100; break;
+		case 57: PORTF |= B1000; break;
+		case 58: PORTF |= B10000; break;
+		case 59: PORTF |= B100000; break;
+		case 60: PORTF |= B1000000; break;
+		case 61: PORTF |= B10000000; break;
+
+		case 62: PORTK |= B1; break;
+		case 63: PORTK |= B10; break;
+		case 64: PORTK |= B100; break;
+		case 65: PORTK |= B1000; break;
+		case 66: PORTK |= B10000; break;
+		case 67: PORTK |= B100000; break;
+		case 68: PORTK |= B1000000; break;
+		case 69: PORTK |= B10000000; break;
 #else
 #error No support for this board.
 #endif		
@@ -222,6 +243,24 @@ static inline void digitalWriteFast(uint8_t pin, bool bit)
 		case 51: PORTB &= B11111011; break;
 		case 52: PORTB &= B11111101; break;
 		case 53: PORTB &= B11111110; break;
+		
+		case 54: PORTF &= B11111110; break;
+		case 55: PORTF &= B11111101; break;
+		case 56: PORTF &= B11111011; break;
+		case 57: PORTF &= B11110111; break;
+		case 58: PORTF &= B11101111; break;
+		case 59: PORTF &= B11011111; break;
+		case 60: PORTF &= B10111111; break;
+		case 61: PORTF &= B01111111; break;
+
+		case 62: PORTK &= B11111110; break;
+		case 63: PORTK &= B11111101; break;
+		case 64: PORTK &= B11111011; break;
+		case 65: PORTK &= B11110111; break;
+		case 66: PORTK &= B11101111; break;
+		case 67: PORTK &= B11011111; break;
+		case 68: PORTK &= B10111111; break;
+		case 69: PORTK &= B01111111; break;
 #else
 #error No support for this board.
 #endif		
@@ -243,17 +282,17 @@ static inline bool digitalReadFast(uint8_t pin)
 	 case 6: return PIND & B1000000;
 	 case 7: return PIND & B10000000;
 	 case 8: return PINB & B1;
-	 case 9: return PINB & B01;
-	 case 10: return PINB & B001;
-	 case 11: return PINB & B0001;
-	 case 12: return PINB & B00001;
-	 case 13: return PINB & B000001;
+	 case 9: return PINB & B10;
+	 case 10: return PINB & B100;
+	 case 11: return PINB & B1000;
+	 case 12: return PINB & B10000;
+	 case 13: return PINB & B100000;
 	 case 14: return PINC & B1;
-	 case 15: return PINC & B01;
-	 case 16: return PINC & B001;
-	 case 17: return PINC & B0001;
-	 case 18: return PINC & B00001;
-	 case 19: return PINC & B000001;
+	 case 15: return PINC & B10;
+	 case 16: return PINC & B100;
+	 case 17: return PINC & B1000;
+	 case 18: return PINC & B10000;
+	 case 19: return PINC & B100000;
  #elif defined(__AVR_ATmega32U4__) 
  #elif defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1280__)
 	case 0: return PINE & B1;
@@ -316,10 +355,28 @@ static inline bool digitalReadFast(uint8_t pin)
 	case 51: return PINB & B100;
 	case 52: return PINB & B10;
 	case 53: return PINB & B1;
+	
+	case 54: return PINF & B1;
+	case 55: return PINF & B10;
+	case 56: return PINF & B100;
+	case 57: return PINF & B1000;
+	case 58: return PINF & B10000;
+	case 59: return PINF & B100000;
+	case 60: return PINF & B1000000;
+	case 61: return PINF & B10000000;
+
+	case 62: return PINK & B1;
+	case 63: return PINK & B10;
+	case 64: return PINK & B100;
+	case 65: return PINK & B1000;
+	case 66: return PINK & B10000;
+	case 67: return PINK & B100000;
+	case 68: return PINK & B1000000;
+	case 69: return PINK & B10000000;
 #else
 #error No support for this board.
 #endif		
-}
+	}
 }
 //**************************************************************
 /*
@@ -344,3 +401,4 @@ void pinModeFast(uint8_t pin, bool mode)
   }
 }
 */
+#endif
