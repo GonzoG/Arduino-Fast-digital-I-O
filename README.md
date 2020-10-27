@@ -8,5 +8,5 @@ digitalWriteFast(uint8_t pin, uint8_t val);**<br>
 <br>
 Speed difference:<br>
 Arduino Uno/Nano:<br>
-digitalWrite - 280k operations/s<br>
-digitalWriteFast - about 7800k operations/s
+digitalWrite - 0.28M operations/s<br>
+digitalWriteFast - theoretical up to 8M operations/s, tested at 7.8M
