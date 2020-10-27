@@ -1,5 +1,5 @@
-#ifndef fastdio_h
-#define fastdio_h
+#ifndef pg_fastdio_h
+#define pg_fastdio_h
 #pragma once
 
 #define BIT0 B1
