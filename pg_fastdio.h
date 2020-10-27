@@ -281,13 +281,11 @@ static inline bool DRMega3(uint8_t pin){
 		case 66: return PINK & B10000;
 		case 67: return PINK & B100000;
 		case 68: return PINK & B1000000;
-		case 69: return PINK & B10000000;		
+		case 69: return PINK & B10000000;
 	}
 }
 #endif 
-
-static inline void digitalWriteFast(uint8_t pin, bool bit)
-{
+static inline void digitalWriteFast(uint8_t pin, bool bit){
 	if(pin<0) return;
 #if defined(__AVR_ATmega168__) || defined(__AVR_ATmega168P__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega328P__) 				
 	if(pin<0 || pin>21)
@@ -425,10 +423,8 @@ static inline void digitalWriteFast(uint8_t pin, bool bit)
 #error No support for this board.
 #endif		
 }
-
 //**************************************************************
-static inline bool digitalReadFast(uint8_t pin) 
-{
+static inline bool digitalReadFast(uint8_t pin){
 #if defined(__AVR_ATmega168__) || defined(__AVR_ATmega168P__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega328P__) 			
  if(pin<0 || pin>21)
 	 return 0;
@@ -496,7 +492,23 @@ static inline bool digitalReadFast(uint8_t pin)
  else
 	 return DRMega3(pin);
 #else
-#error No support for this board.
+	#error No support for this board.
 #endif		
 }
 #endif
+
+/*
+MEGA ports:
+PA:		PB:		PC:		PD:		PE:		PF:		PG:		PH:		PJ:		PK:		PL:
+
+PA0		PB0		PC0		PD0		PE0		PF0		PG0		PH0		PJ0		PK0		PL0
+PA1		PB1		PC1		PD1		PE1		PF1		PG1		PH1		PJ1		PK1		PL1
+PA2		PB2		PC2		PD2				PF2		PG2						PK2		PL2
+PA3		PB3		PC3		PD3				PF3				PH3				PK3		PL3
+PA4		PB4		PC4				PE4		PF4				PH4				PK4		PL4
+PA5		PB5		PC5				PE5		PF5		PG5		PH5				PK5		PL5
+PA6		PB6		PC6						PF6				PH6				PK6		PL6
+PA7		PB7		PC7		PD7				PF7								PK7		PL7		
+8		8		8		5		4		8		4		6		2		8		8	
+
+*/
