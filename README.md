@@ -4,8 +4,8 @@ Using port registers.
 
 Usage is same as with standard arduino digitalRead / digitalWrite: <br>
 
-**bool digitalReadFast(uint8_t pin);**<br>
-**digitalWriteFast(uint8_t pin, uint8_t val);**<br>
+<b>bool digitalReadFast(uint8_t pin);</b><br>
+<b>digitalWriteFast(uint8_t pin, uint8_t val);</b><br>
 <br>
 Speed difference:<br>
 **Arduino Uno/Nano:<br>**
