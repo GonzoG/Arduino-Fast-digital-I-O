@@ -12,10 +12,10 @@ Speed difference:<br>
 digitalWrite - 0.28M operations/s<br>
 digitalWriteFast - theoretical up to 8M operations/s, tested at 7.8M
 
-digitalRead - 0.26M/s
+digitalRead - 0.26M/s<br>
 digitalReadFast - 15.8M/s<br><br>
 
 **Arduino Mega** (speed depends on pin. Some pins are slower, some faster)<br>
 ---------------------
 digitalWrite - 0.18-0.26M/s<br>
-digitalWriteFast - 3.2-7.9M/s
+digitalWriteFast - 3.2-7.9M/s<br>
