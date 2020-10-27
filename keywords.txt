@@ -1,0 +1,11 @@
+#######################################
+# Syntax Coloring Map for PG fastDIO
+#######################################
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+digitalWriteFast	KEYWORD2
+digitalReadFast	KEYWORD2
+
+#######################################
