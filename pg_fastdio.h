@@ -2,14 +2,14 @@
 #define pg_fastdio_h
 #pragma once
 
-#define BIT0 B1
-#define BIT1 B10
-#define BIT2 B100
-#define BIT3 B1000
-#define BIT4 B10000
-#define BIT5 B100000
-#define BIT6 B1000000
-#define BIT7 B10000000
+#define BIT0 1		//B1
+#define BIT1 2		//B10
+#define BIT2 4		//B100
+#define BIT3 8		//B1000
+#define BIT4 16		//B10000
+#define BIT5 32		//B100000
+#define BIT6 64		//B1000000
+#define BIT7 128	//B10000000
 
 #if defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1280__)
 static inline void DWMega1(uint8_t pin, bool bit){
